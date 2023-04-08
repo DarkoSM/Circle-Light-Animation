@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ring Light</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        .rotation {
+            animation-name: rotate;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+      
+        #background {
+            position: absolute;
+            right: 25%;
+            width: 50%;
+            height: 70%;
+            background-color: #050210;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: auto;
+            
+        }
+        #light {
+            width: 370px;
+            height: 370px;
+            top: 20%;
+            right: 0;
+            left: 0;
+            margin: auto;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            border-radius: 100%;
+            position: absolute;
+            filter: blur(70px);
+            float:right;
+            
+        }
+        #ring {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            border-radius: 100%;
+            position: absolute;
+            left:0;
+            right:0;
+            top: 20%;
+            margin: auto;
+        }
+        #center {
+            width: 340px;
+            height: 340px;
+            border-radius: 100%;
+            background-color: black;
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        #center::before {
+            position: absolute;
+            content: "";
+            width: 340px;
+            height: 340px;
+            left: 0;
+            right: 0;
+            border-radius: 100%;
+            background: rgb(34, 0, 255);
+            margin: 0 auto;
+            animation-name: pulseFX;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+             }
+        }
+
+        @keyframes pulseFX {
+            0% {
+                transform: scale(30%);
+                filter: opacity(0%);
+            }
+            50% {
+                filter: opacity(15%);
+            }
+            100% {
+                transform: scale(100%);
+                filter: opacity(0%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="background">
+        <div class="rotation" id="light"></div>
+        <div class="rotation" id="ring">
+            <div id="center">
+                <div id="pulse"></div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+</html>
